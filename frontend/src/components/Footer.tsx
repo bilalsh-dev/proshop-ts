@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "../lib/react-bootstrap";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
