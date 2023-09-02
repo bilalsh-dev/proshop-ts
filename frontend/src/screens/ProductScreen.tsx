@@ -1,14 +1,15 @@
-import { Link, useParams } from "../lib/react-router-dom";
+import products from "assets/data/products";
+import Rating from "components/Rating";
+
 import {
-  Row,
+  Button,
+  Card,
   Col,
   Image,
   ListGroup,
-  Card,
-  Button,
-} from "../lib/react-bootstrap";
-import Rating from "../components/Rating";
-import products from "../assets/data/products";
+  Row,
+} from "@/lib/react-bootstrap";
+import { Link, useParams } from "@/lib/react-router-dom";
 
 function ProductScreen() {
   const { id: productId } = useParams();

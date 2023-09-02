@@ -1,7 +1,8 @@
-import { Card } from "../lib/react-bootstrap";
-import { Link } from "../lib/react-router-dom";
+import { Card } from "@/lib/react-bootstrap";
+import { Link } from "@/lib/react-router-dom";
+import { Product as ProductType } from "@/types";
+
 import Rating from "./Rating";
-import { Product as ProductType } from "../types";
 
 type ProductProps = {
   product: ProductType;

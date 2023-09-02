@@ -1,7 +1,9 @@
-import { Navbar, Nav, Container } from "../lib/react-bootstrap";
-import { LinkContainer } from "../lib/react-router-bootstrap";
-import { FaShoppingCart, FaUser } from "../lib/react-icons";
-import logo from "../assets/logo.png";
+import logo from "assets/logo.png";
+
+import { Container, Nav, Navbar } from "@/lib/react-bootstrap";
+import { FaShoppingCart, FaUser } from "@/lib/react-icons";
+import { LinkContainer } from "@/lib/react-router-bootstrap";
+
 function Header() {
   return (
     <header>

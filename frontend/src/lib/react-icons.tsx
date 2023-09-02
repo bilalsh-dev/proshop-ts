@@ -1,9 +1,9 @@
 import {
+  FaRegStar,
   FaShoppingCart,
-  FaUser,
   FaStar,
   FaStarHalfAlt,
-  FaRegStar,
+  FaUser,
 } from "react-icons/fa";
 
-export { FaShoppingCart, FaUser, FaStar, FaStarHalfAlt, FaRegStar };
+export { FaRegStar,FaShoppingCart, FaStar, FaStarHalfAlt, FaUser };
