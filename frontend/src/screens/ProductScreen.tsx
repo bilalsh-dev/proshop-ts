@@ -1,5 +1,5 @@
 import products from "assets/data/products";
-import Rating from "components/Rating";
+import { Rating } from "components";
 
 import {
   Button,

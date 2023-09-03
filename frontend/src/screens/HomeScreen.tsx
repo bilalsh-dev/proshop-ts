@@ -1,5 +1,5 @@
 import products from "assets/data/products";
-import Product from "components/Product";
+import { Product } from "components";
 
 import { Col, Row } from "@/lib/react-bootstrap";
 

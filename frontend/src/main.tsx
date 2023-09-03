@@ -4,8 +4,7 @@ import "styles/index.css";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import HomeScreen from "screens/HomeScreen.tsx";
-import ProductScreen from "screens/ProductScreen.tsx";
+import { HomeScreen, ProductScreen } from "screens";
 
 import {
   createBrowserRouter,

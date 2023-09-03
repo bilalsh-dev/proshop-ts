@@ -1,5 +1,4 @@
-import Footer from "components/Footer";
-import Header from "components/Header";
+import { Footer, Header } from "components";
 
 import { Container } from "@/lib/react-bootstrap";
 import { Outlet } from "@/lib/react-router-dom";

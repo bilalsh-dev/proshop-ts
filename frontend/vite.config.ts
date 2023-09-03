@@ -10,8 +10,8 @@ export default defineConfig({
     // },
     alias: {
       "@": path.resolve(__dirname, "src"),
-      components: path.resolve(__dirname, "src/components"),
-      screens: path.resolve(__dirname, "src/screens"),
+      components: path.resolve(__dirname, "src/components/index"),
+      screens: path.resolve(__dirname, "src/screens/index"),
       types: path.resolve(__dirname, "src/types"),
       assets: path.resolve(__dirname, "src/assets"),
       styles: path.resolve(__dirname, "src/assets/styles"),
