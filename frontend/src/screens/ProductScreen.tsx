@@ -1,6 +1,8 @@
-import products from "assets/data/products";
+// import products from "assets/data/products";
 import { Rating } from "components";
+import { useEffect, useState } from "react";
 
+import { axios } from "@/lib/axios";
 import {
   Button,
   Card,
@@ -10,11 +12,18 @@ import {
   Row,
 } from "@/lib/react-bootstrap";
 import { Link, useParams } from "@/lib/react-router-dom";
+import type { Product as ProductType } from "@/types";
 
 function ProductScreen() {
   const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
-  console.log("product", product);
+  const [product, setProduct] = useState<ProductType>({});
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+    };
+    fetchProduct();
+  }, [productId]);
   return (
     <>
       <Link className="btn btn-light my-3" to="/">

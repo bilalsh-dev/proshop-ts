@@ -1,0 +1,31 @@
+{
+  "name": "proshop-ts",
+  "version": "1.0.0",
+  "description": "A ecomerce website built on MERN Stack.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "client": "npm run dev --prefix frontend",
+    "preserve": "npm run build",
+    "serve": "concurrently \"npx tsc -w\"  \"nodemon dist/index.js\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bilal Shahid",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.5.9",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.1",
+    "express": "^4.18.2",
+    "rimraf": "^5.0.1"
+  }
+}

@@ -17,4 +17,13 @@ export default defineConfig({
       styles: path.resolve(__dirname, "src/assets/styles"),
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
