@@ -1,13 +1,31 @@
 import {
+  Alert,
+  Badge,
   Button,
   Card,
   Col,
   Container,
+  Form,
   Image,
   ListGroup,
   Nav,
   Navbar,
   Row,
+  Spinner,
 } from "react-bootstrap";
 
-export { Button,Card, Col, Container, Image, ListGroup, Nav, Navbar, Row };
+export {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  Image,
+  ListGroup,
+  Nav,
+  Navbar,
+  Row,
+  Spinner,
+};
