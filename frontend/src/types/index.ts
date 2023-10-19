@@ -10,5 +10,15 @@ type Product = {
   rating: number;
   numReviews: number;
 };
+type CartItem = Product & {
+  qty: number;
+};
 
-export type { Product };
+type CartState = {
+  cartItems: CartItem[];
+  itemsPrice: number;
+  shippingPrice: number;
+  taxPrice: number;
+  totalPrice: number;
+};
+export type { CartItem, CartState, Product };
