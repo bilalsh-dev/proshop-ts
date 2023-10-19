@@ -13,10 +13,14 @@
       "@/*": ["src/*"],
       // "src/*": ["src/*"],
       "components": ["src/components/index"],
+      "hooks": ["src/hooks/index"],
       "screens": ["src/screens/index"],
+      "slices": ["src/slices/index"],
+      "store": ["src/store/index"],
       "assets/*": ["src/assets/*"],
       "styles/*": ["src/assets/styles/*"],
-      "types/*": ["src/types/*"]
+      "types/*": ["src/types/*"],
+      "utils": ["src/utils/index"]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
