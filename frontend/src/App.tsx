@@ -2,6 +2,7 @@ import { Footer, Header } from "components";
 
 import { Container } from "@/lib/react-bootstrap";
 import { Outlet } from "@/lib/react-router-dom";
+import { ToastContainer } from "@/lib/react-toastify";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         </Container>
       </main>
       <Footer />
+      <ToastContainer />
     </>
   );
 }
