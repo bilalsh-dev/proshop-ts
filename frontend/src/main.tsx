@@ -1,10 +1,11 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/ReactToastify.css";
 import "styles/bootstrap.custom.css";
 import "styles/index.css";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CartScreen, HomeScreen, ProductScreen } from "screens";
+import { CartScreen, HomeScreen, LoginScreen, ProductScreen } from "screens";
 import store from "store";
 
 import { Provider } from "@/lib/react-redux.tsx";
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route index path="/" element={<HomeScreen />} />
       <Route path="/product/:id" element={<ProductScreen />} />
       <Route path="/cart" element={<CartScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
     </Route>
   )
 );

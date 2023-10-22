@@ -6,6 +6,7 @@ import {
   Outlet,
   Route,
   RouterProvider,
+  useLocation,
   useNavigate,
   useParams,
 } from "react-router-dom";
@@ -17,6 +18,7 @@ export {
   Outlet,
   Route,
   RouterProvider,
+  useLocation,
   useNavigate,
   useParams,
 };
