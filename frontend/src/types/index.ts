@@ -21,4 +21,15 @@ type CartState = {
   taxPrice: number;
   totalPrice: number;
 };
-export type { CartItem, CartState, Product };
+
+type UserInfo = {
+  _id: string;
+  name: string;
+  email: string;
+  isAdmin: boolean;
+};
+type LoginPayload = {
+  email: string;
+  password: string;
+};
+export type { CartItem, CartState, LoginPayload, Product, UserInfo };
