@@ -5,7 +5,13 @@ import "styles/index.css";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CartScreen, HomeScreen, LoginScreen, ProductScreen } from "screens";
+import {
+  CartScreen,
+  HomeScreen,
+  LoginScreen,
+  ProductScreen,
+  RegisterScreen,
+} from "screens";
 import store from "store";
 
 import { Provider } from "@/lib/react-redux.tsx";
@@ -25,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="/product/:id" element={<ProductScreen />} />
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/login" element={<LoginScreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
     </Route>
   )
 );

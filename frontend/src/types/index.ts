@@ -32,4 +32,16 @@ type LoginPayload = {
   email: string;
   password: string;
 };
-export type { CartItem, CartState, LoginPayload, Product, UserInfo };
+type RegisterPayload = {
+  name: string;
+  email: string;
+  password: string;
+};
+export type {
+  CartItem,
+  CartState,
+  LoginPayload,
+  Product,
+  RegisterPayload,
+  UserInfo,
+};

@@ -5,7 +5,11 @@ import {
   useGetProductsDetailsQuery,
   useGetProductsQuery,
 } from "./productsApiSlice";
-import { useLoginMutation, useLogoutMutation } from "./usersApiSlice";
+import {
+  useLoginMutation,
+  useLogoutMutation,
+  useRegisterMutation,
+} from "./usersApiSlice";
 
 export {
   addToCart,
@@ -19,4 +23,5 @@ export {
   useGetProductsQuery,
   useLoginMutation,
   useLogoutMutation,
+  useRegisterMutation,
 };
