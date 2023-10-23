@@ -1,4 +1,4 @@
-import { getUserInfo, setUserInfo } from "./authUtils";
+import { getUserInfo, removeUserInfo, setUserInfo } from "./authUtils";
 import { addDecimals, updateCart } from "./cartUtils";
 
-export { addDecimals, getUserInfo, setUserInfo, updateCart };
+export { addDecimals, getUserInfo, removeUserInfo, setUserInfo, updateCart };

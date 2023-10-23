@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import cors from "cors";
 import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -10,7 +11,7 @@ dotenv.config();
 const port = process.env.PORT || 5000;
 connectDB();
 const app = express();
-
+app.use(cors({ origin: "http://localhost:3000" }));
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

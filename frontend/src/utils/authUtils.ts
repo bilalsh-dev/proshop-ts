@@ -9,4 +9,8 @@ const setUserInfo = (userInfo: UserInfo) => {
   localStorage.setItem(USER_INFO, JSON.stringify(userInfo));
 };
 
-export { getUserInfo, setUserInfo };
+const removeUserInfo = () => {
+  localStorage.removeItem(USER_INFO);
+};
+
+export { getUserInfo, removeUserInfo, setUserInfo };

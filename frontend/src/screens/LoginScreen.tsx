@@ -6,6 +6,7 @@ import { setCredentials, useLoginMutation } from "slices";
 import { Button, Col, Form, Row } from "@/lib/react-bootstrap";
 import { Link, useLocation, useNavigate } from "@/lib/react-router-dom";
 import { toast } from "@/lib/react-toastify";
+import { UserInfo } from "@/types";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -19,8 +20,8 @@ const LoginScreen = () => {
   const { userInfo } = useAppSelector((state) => state.auth);
 
   const { search } = useLocation();
-  const sp = new URLSearchParams(search);
-  const redirect = sp.get("redirect") || "/";
+  const searchParams = new URLSearchParams(search);
+  const redirect = searchParams.get("redirect") || "/";
 
   useEffect(() => {
     if (userInfo) {
@@ -32,7 +33,7 @@ const LoginScreen = () => {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ ...res }));
+      dispatch(setCredentials({ ...res } as UserInfo));
       navigate(redirect);
     } catch (err) {
       toast.error(err?.data?.message || err.error);

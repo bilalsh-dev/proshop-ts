@@ -1,4 +1,4 @@
-import { getUserInfo, setUserInfo } from "utils";
+import { getUserInfo, removeUserInfo, setUserInfo } from "utils";
 
 import type { PayloadAction } from "@/lib/react-redux";
 import { createSlice } from "@/lib/react-redux";
@@ -16,8 +16,12 @@ const authSlice = createSlice({
       state.userInfo = action.payload;
       setUserInfo(action.payload);
     },
+    logout: (state) => {
+      state.userInfo = null;
+      removeUserInfo();
+    },
   },
 });
 
-export const { setCredentials } = authSlice.actions;
+export const { setCredentials, logout } = authSlice.actions;
 export default authSlice.reducer;
