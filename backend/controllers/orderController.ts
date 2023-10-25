@@ -3,52 +3,60 @@ import Order, { IOrder } from "../models/orderModel.js";
 
 import asyncHandler from "../middleware/asyncHandler.js";
 
+import { IUser } from "../models/userModel.js";
+
+type AuthenticatedRequest = Request & { user: IUser };
+
 // @desc   Create new order
 // @route  POST /api/orders
 // @access Private
-const addOrderItems = asyncHandler(async (req: Request, res: Response) => {
-  const {
-    orderItems,
-    shippingAddress,
-    paymentMethod,
-    itemsPrice,
-    taxPrice,
-    shippingPrice,
-    totalPrice,
-  } = req.body;
-  if (orderItems && orderItems.length === 0) {
-    res.status(400);
-    throw new Error("No order items");
-  } else {
-    const order = new Order({
-      orderItems: orderItems.map((items) => ({
-        ...items,
-        product: items._id,
-        _id: undefined,
-      })),
-      user: req.user._id,
+const addOrderItems = asyncHandler(
+  async (req: AuthenticatedRequest, res: Response) => {
+    const {
+      orderItems,
       shippingAddress,
       paymentMethod,
       itemsPrice,
       taxPrice,
       shippingPrice,
       totalPrice,
-    });
+    } = req.body;
+    if (orderItems && orderItems.length === 0) {
+      res.status(400);
+      throw new Error("No order items");
+    } else {
+      const order = new Order({
+        orderItems: orderItems.map((items) => ({
+          ...items,
+          product: items._id,
+          _id: undefined,
+        })),
+        user: req.user._id,
+        shippingAddress,
+        paymentMethod,
+        itemsPrice,
+        taxPrice,
+        shippingPrice,
+        totalPrice,
+      });
 
-    const createOrder = await order.save();
-    res.status(201).json(createOrder);
+      const createOrder = await order.save();
+      res.status(201).json(createOrder);
+    }
+
+    res.send("add order items");
   }
-
-  res.send("add order items");
-});
+);
 
 // @desc   Get logged in user orders
 // @route  POST /api/orders/myorders
 // @access Private
-const getMyOrders = asyncHandler(async (req: Request, res: Response) => {
-  const orders = await Order.find({ user: req.user._id });
-  res.status(200).json(orders);
-});
+const getMyOrders = asyncHandler(
+  async (req: AuthenticatedRequest, res: Response) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.status(200).json(orders);
+  }
+);
 
 // @desc   Get order by ID
 // @route  GET /api/orders/:id

@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import asyncHandler from "../middleware/asyncHandler.js";
 import User, { IUser } from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
+
+type AuthenticatedRequest = Request & { user: IUser };
+
 // @desc   Auth user & get token
 // @route  POST /api/user/login
 // @access Public
@@ -72,7 +75,7 @@ const logoutUser = asyncHandler(async (req: Request, res: Response) => {
 // @access Private
 
 const getUserProfile = asyncHandler(
-  async (req: Request & { user: IUser }, res: Response) => {
+  async (req: AuthenticatedRequest, res: Response) => {
     const user = await User.findById(req.user._id);
     if (user) {
       res.status(200).json({
@@ -93,7 +96,7 @@ const getUserProfile = asyncHandler(
 // @access Private
 
 const updateUserProfile = asyncHandler(
-  async (req: Request & { user: IUser }, res: Response) => {
+  async (req: AuthenticatedRequest, res: Response) => {
     const user = await User.findById(req.user._id);
     if (user) {
       user.name = req.body.name || user.name;
