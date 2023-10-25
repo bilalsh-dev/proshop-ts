@@ -3,14 +3,18 @@ import "react-toastify/ReactToastify.css";
 import "styles/bootstrap.custom.css";
 import "styles/index.css";
 
+import { PrivateRoute } from "components";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
   CartScreen,
   HomeScreen,
   LoginScreen,
+  PaymentScreen,
+  PlaceOrderScreen,
   ProductScreen,
   RegisterScreen,
+  ShippingScreen,
 } from "screens";
 import store from "store";
 
@@ -32,6 +36,11 @@ const router = createBrowserRouter(
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/shipping" element={<ShippingScreen />} />
+        <Route path="/payment" element={<PaymentScreen />} />
+        <Route path="/placeorder" element={<PlaceOrderScreen />} />
+      </Route>
     </Route>
   )
 );
