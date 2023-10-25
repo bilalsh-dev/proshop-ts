@@ -29,7 +29,7 @@ const LoginScreen = () => {
     }
   }, [navigate, redirect, userInfo]);
 
-  const submitHandler = async (e: { preventDefault: () => void }) => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
