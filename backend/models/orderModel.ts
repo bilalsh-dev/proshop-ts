@@ -22,7 +22,7 @@ interface IPaymentMethod {
   email_address: string;
 }
 
-interface IOrder extends Document {
+export interface IOrder extends Document {
   user: mongoose.Types.ObjectId;
   orderItems: IOrderItem[];
   shippingAddress: IShippingAddress;
