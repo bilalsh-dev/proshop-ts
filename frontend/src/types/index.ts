@@ -49,7 +49,7 @@ type RegisterPayload = {
 
 type OrderItem = {
   name: string;
-  qty: 1;
+  qty: number;
   image: string;
   price: number;
   product: string;
@@ -58,6 +58,7 @@ type OrderItem = {
 type Order = {
   user: string;
   orderItems: OrderItem[];
+  paymentMethod: string;
   shippingAddress: ShippingAddress;
   itemsPrice: number;
   taxPrice: number;
