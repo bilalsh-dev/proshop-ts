@@ -13,6 +13,7 @@ import {
   NavDropdown,
   Row,
   Spinner,
+  Table,
 } from "react-bootstrap";
 
 export {
@@ -30,4 +31,5 @@ export {
   NavDropdown,
   Row,
   Spinner,
+  Table,
 };
