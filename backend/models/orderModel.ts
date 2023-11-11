@@ -21,18 +21,24 @@ interface IPaymentMethod {
   update_time: string;
   email_address: string;
 }
+interface PaymentResult {
+  id: string;
+  status: string;
+  email_address: string;
+}
 
 export interface IOrder extends Document {
   user: mongoose.Types.ObjectId;
   orderItems: IOrderItem[];
   shippingAddress: IShippingAddress;
   paymentMethod: IPaymentMethod;
+  paymentResult?: PaymentResult;
   itemsPrice: number;
   taxPrice: number;
   shippingPrice: number;
   totalPrice: number;
   isPaid: boolean;
-  paidAt?: Date;
+  paidAt?: number;
   isDelivered: boolean;
   deliveredAt?: Date;
 }
@@ -70,6 +76,11 @@ const orderSchema: Schema<IOrder> = new mongoose.Schema(
       id: { type: String },
       status: { type: String },
       update_time: { type: String },
+      email_address: { type: String },
+    },
+    paymentResult: {
+      id: { type: String },
+      status: { type: String },
       email_address: { type: String },
     },
     itemsPrice: {
