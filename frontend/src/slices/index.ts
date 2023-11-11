@@ -7,15 +7,28 @@ import CartSliceReducer, {
   savePaymentMethod,
   saveShippingAddress,
 } from "./cartSlice";
-import { useCreateOrderMutation } from "./ordersApiSlice";
+import {
+  useCreateOrderMutation,
+  useDeliverOrderMutation,
+  useGetMyOrdersQuery,
+  useGetOrderDetailsQuery,
+  useGetOrdersQuery,
+  usePayOrderMutation,
+} from "./ordersApiSlice";
+import { useGetPaypalClientIdQuery } from "./paypalApiSlice";
 import {
   useGetProductsDetailsQuery,
   useGetProductsQuery,
 } from "./productsApiSlice";
 import {
+  useDeleteUserMutation,
+  useGetUserDetailsQuery,
+  useGetUsersQuery,
   useLoginMutation,
   useLogoutMutation,
+  useProfileMutation,
   useRegisterMutation,
+  useUpdateUserMutation,
 } from "./usersApiSlice";
 
 export {
@@ -30,9 +43,20 @@ export {
   saveShippingAddress,
   setCredentials,
   useCreateOrderMutation,
+  useDeleteUserMutation,
+  useDeliverOrderMutation,
+  useGetMyOrdersQuery,
+  useGetOrderDetailsQuery,
+  useGetOrdersQuery,
+  useGetPaypalClientIdQuery,
   useGetProductsDetailsQuery,
   useGetProductsQuery,
+  useGetUserDetailsQuery,
+  useGetUsersQuery,
   useLoginMutation,
   useLogoutMutation,
+  usePayOrderMutation,
+  useProfileMutation,
   useRegisterMutation,
+  useUpdateUserMutation,
 };

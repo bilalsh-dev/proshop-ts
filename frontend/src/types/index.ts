@@ -46,7 +46,12 @@ type RegisterPayload = {
   email: string;
   password: string;
 };
-
+type UpdateUserInfo = {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
+};
 type OrderItem = {
   name: string;
   qty: number;
@@ -56,7 +61,8 @@ type OrderItem = {
 };
 
 type Order = {
-  user: string;
+  _id: string;
+  user: { _id: string; name: string; email: string };
   orderItems: OrderItem[];
   paymentMethod: string;
   shippingAddress: ShippingAddress;
@@ -66,7 +72,6 @@ type Order = {
   totalPrice: number;
   isPaid: boolean;
   isDelivered: boolean;
-  _id: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -79,5 +84,6 @@ export type {
   Product,
   RegisterPayload,
   ShippingAddress,
+  UpdateUserInfo,
   UserInfo,
 };
