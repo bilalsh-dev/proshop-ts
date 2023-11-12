@@ -71,7 +71,9 @@ type Order = {
   shippingPrice: number;
   totalPrice: number;
   isPaid: boolean;
+  paidAt: string;
   isDelivered: boolean;
+  deliveredAt: string;
   createdAt: string;
   updatedAt: string;
 };
