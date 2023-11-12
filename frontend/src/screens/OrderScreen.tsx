@@ -131,7 +131,7 @@ const OrderScreen = () => {
               </p>
               <p>
                 <strong>Email: </strong>{" "}
-                {/* <a href={`mailto:${order!.user.email}`}>{order!.user.email}</a> */}
+                <a href={`mailto:${order!.user.email}`}>{order!.user.email}</a>
               </p>
               <p>
                 <strong>Address:</strong>
@@ -140,7 +140,9 @@ const OrderScreen = () => {
                 {order!.shippingAddress.country}
               </p>
               {order!.isDelivered ? (
-                <Message variant="success">Delivered on?</Message>
+                <Message variant="success">
+                  Delivered on? {order!.deliveredAt}
+                </Message>
               ) : (
                 <Message variant="danger">Not Delivered</Message>
               )}
@@ -155,7 +157,7 @@ const OrderScreen = () => {
               {order!.isPaid ? (
                 <Message variant="success">
                   Paid on
-                  {/* {order!.paidAt} */}
+                  {order!.paidAt}
                 </Message>
               ) : (
                 <Message variant="danger">Not Paid</Message>
