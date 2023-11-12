@@ -3,7 +3,7 @@ import "react-toastify/ReactToastify.css";
 import "styles/bootstrap.custom.css";
 import "styles/index.css";
 
-import { PrivateRoute } from "components";
+import { AdminRoute, PrivateRoute } from "components";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
@@ -20,6 +20,8 @@ import {
 } from "screens";
 import store from "store";
 
+import { PayPalScriptProvider } from "@/lib/react-paypal.ts";
+import { Provider } from "@/lib/react-redux.tsx";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -28,8 +30,7 @@ import {
 } from "@/lib/react-router-dom.tsx";
 
 import App from "./App.tsx";
-import { PayPalScriptProvider } from "./lib/react-paypal.ts";
-import { Provider } from "./lib/react-redux.tsx";
+import { OrderListScreen } from "./screens/admin";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +46,9 @@ const router = createBrowserRouter(
         <Route path="/placeorder" element={<PlaceOrderScreen />} />
         <Route path="/order/:id" element={<OrderScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
+      </Route>
+      <Route path="" element={<AdminRoute />}>
+        <Route path="/admin/orderlist" element={<OrderListScreen />} />
       </Route>
     </Route>
   )
