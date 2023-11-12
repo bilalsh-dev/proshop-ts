@@ -110,7 +110,7 @@ const OrderScreen = () => {
   }
 
   const deliverHandler = async () => {
-    await deliverOrder(orderId);
+    await deliverOrder(orderId!);
     refetch();
   };
 
