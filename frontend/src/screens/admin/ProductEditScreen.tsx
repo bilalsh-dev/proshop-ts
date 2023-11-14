@@ -1,5 +1,5 @@
 import { FormContainer, Loader, Message } from "components";
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { useEffect, useState } from "react";
 import {
   useGetProductsDetailsQuery,
@@ -37,7 +37,7 @@ const ProductEditScreen = () => {
 
   const navigate = useNavigate();
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await updateProduct({

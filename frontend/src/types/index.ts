@@ -1,3 +1,12 @@
+type Review = {
+  _id: string;
+  createdAt: string;
+  name: string;
+  rating: number;
+  comment: string;
+  user: string;
+};
+
 type Product = {
   _id: string;
   name: string;
@@ -9,6 +18,7 @@ type Product = {
   countInStock: number;
   rating?: number;
   numReviews?: number;
+  reviews?: Review[];
 };
 type CartItem = Product & {
   qty: number;
@@ -77,7 +87,11 @@ type Order = {
   createdAt: string;
   updatedAt: string;
 };
-
+type ReviewPayload = {
+  productId: string;
+  rating: number;
+  comment: string;
+};
 export type {
   CartItem,
   CartState,
@@ -85,6 +99,8 @@ export type {
   Order,
   Product,
   RegisterPayload,
+  Review,
+  ReviewPayload,
   ShippingAddress,
   UpdateUserInfo,
   UserInfo,

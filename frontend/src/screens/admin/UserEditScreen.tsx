@@ -1,5 +1,5 @@
 import { FormContainer, Loader, Message } from "components";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useGetUserDetailsQuery, useUpdateUserMutation } from "slices";
 
 import { Button, Form } from "@/lib/react-bootstrap";
@@ -23,7 +23,7 @@ const UserEditScreen = () => {
 
   const navigate = useNavigate();
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await updateUser({ _id: userId!, name, email, isAdmin });

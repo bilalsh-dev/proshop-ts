@@ -1,5 +1,5 @@
 import { PRODUCTS_URL } from "@/constants";
-import type { Product } from "@/types";
+import type { Product, ReviewPayload } from "@/types";
 
 import { apiSlice } from "./apiSlice";
 
@@ -42,7 +42,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: ["Product"],
       // providesTags: ["Product"],
     }),
-    createReview: builder.mutation({
+    createReview: builder.mutation<void, ReviewPayload>({
       query: (data) => ({
         url: `${PRODUCTS_URL}/${data.productId}/reviews`,
         method: "POST",

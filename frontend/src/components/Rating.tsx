@@ -1,6 +1,6 @@
-import { FaRegStar,FaStar, FaStarHalfAlt } from "@/lib/react-icons";
+import { FaRegStar, FaStar, FaStarHalfAlt } from "@/lib/react-icons";
 
-type RatingProps = { value: number; text: string; color?: string };
+type RatingProps = { value: number; text?: string; color?: string };
 
 function Rating({ value, text }: RatingProps) {
   return (
