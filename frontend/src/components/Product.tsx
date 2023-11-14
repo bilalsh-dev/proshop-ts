@@ -22,8 +22,8 @@ function Product({ product }: ProductProps) {
         </Link>
         <Card.Text as="div">
           <Rating
-            value={product.rating}
-            text={`${product.numReviews} reviews`}
+            value={product.rating || 0}
+            text={`${product.numReviews || 0} reviews`}
           />
         </Card.Text>
         <Card.Text as="h3">{product.price}</Card.Text>

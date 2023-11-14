@@ -1,4 +1,7 @@
 import {
+  FaCheck,
+  FaEdit,
+  FaPlus,
   FaRegStar,
   FaShoppingCart,
   FaStar,
@@ -9,6 +12,9 @@ import {
 } from "react-icons/fa";
 
 export {
+  FaCheck,
+  FaEdit,
+  FaPlus,
   FaRegStar,
   FaShoppingCart,
   FaStar,

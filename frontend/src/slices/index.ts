@@ -17,9 +17,15 @@ import {
 } from "./ordersApiSlice";
 import { useGetPaypalClientIdQuery } from "./paypalApiSlice";
 import {
+  useCreateProductMutation,
+  useCreateReviewMutation,
+  useDeleteProductMutation,
   useGetProductsDetailsQuery,
   useGetProductsQuery,
+  useGetTopProductsQuery,
+  useUpdateProductMutation,
 } from "./productsApiSlice";
+import { useUploadImageMutation } from "./uploadsApiSlice";
 import {
   useDeleteUserMutation,
   useGetUserDetailsQuery,
@@ -43,6 +49,9 @@ export {
   saveShippingAddress,
   setCredentials,
   useCreateOrderMutation,
+  useCreateProductMutation,
+  useCreateReviewMutation,
+  useDeleteProductMutation,
   useDeleteUserMutation,
   useDeliverOrderMutation,
   useGetMyOrdersQuery,
@@ -51,6 +60,7 @@ export {
   useGetPaypalClientIdQuery,
   useGetProductsDetailsQuery,
   useGetProductsQuery,
+  useGetTopProductsQuery,
   useGetUserDetailsQuery,
   useGetUsersQuery,
   useLoginMutation,
@@ -58,5 +68,7 @@ export {
   usePayOrderMutation,
   useProfileMutation,
   useRegisterMutation,
+  useUpdateProductMutation,
   useUpdateUserMutation,
+  useUploadImageMutation,
 };

@@ -7,8 +7,8 @@ type Product = {
   category: string;
   price: number;
   countInStock: number;
-  rating: number;
-  numReviews: number;
+  rating?: number;
+  numReviews?: number;
 };
 type CartItem = Product & {
   qty: number;

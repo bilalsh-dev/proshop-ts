@@ -37,28 +37,28 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    getUsers: builder.query({
+    getUsers: builder.query<UserInfo[], void>({
       query: () => ({
         url: USERS_URL,
       }),
       providesTags: ["User"],
       keepUnusedDataFor: 5,
     }),
-    deleteUser: builder.mutation({
+    deleteUser: builder.mutation<void, string>({
       query: (userId) => ({
         url: `${USERS_URL}/${userId}`,
         method: "DELETE",
       }),
     }),
-    getUserDetails: builder.query({
+    getUserDetails: builder.query<UserInfo, string>({
       query: (id) => ({
         url: `${USERS_URL}/${id}`,
       }),
       keepUnusedDataFor: 5,
     }),
-    updateUser: builder.mutation({
+    updateUser: builder.mutation<UserInfo, UserInfo>({
       query: (data) => ({
-        url: `${USERS_URL}/${data.userId}`,
+        url: `${USERS_URL}/${data._id}`,
         method: "PUT",
         body: data,
       }),

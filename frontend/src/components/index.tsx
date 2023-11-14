@@ -5,6 +5,7 @@ import FormContainer from "./FormContainer";
 import Header from "./Header";
 import Loader from "./Loader";
 import Message from "./Message";
+import Paginate from "./Paginate";
 import PrivateRoute from "./PrivateRoute";
 import Product from "./Product";
 import Rating from "./Rating";
@@ -17,6 +18,7 @@ export {
   Header,
   Loader,
   Message,
+  Paginate,
   PrivateRoute,
   Product,
   Rating,
