@@ -10,7 +10,7 @@ const reviewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-interface IReview extends Document {
+export interface IReview {
   user: Types.ObjectId;
   name: string;
   rating: number;
