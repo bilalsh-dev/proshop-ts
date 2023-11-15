@@ -20,6 +20,7 @@ import {
 import { Link, useNavigate, useParams } from "@/lib/react-router-dom";
 import { toast } from "@/lib/react-toastify";
 import type { CartItem } from "@/types";
+import { getErrorMessage } from "@/utils";
 
 function ProductScreen() {
   const dispatch = useAppDispatch();
@@ -54,7 +55,7 @@ function ProductScreen() {
       refetch();
       toast.success("Review created successfully");
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      toast.error(getErrorMessage(err));
     }
   };
 
@@ -71,9 +72,7 @@ function ProductScreen() {
       {isLoading ? (
         <Loader />
       ) : isError ? (
-        <Message variant={DANGER}>
-          {error?.data?.message || error?.error}
-        </Message>
+        <Message variant={DANGER}>{getErrorMessage(error)}</Message>
       ) : (
         <>
           <Meta title={product?.name} description={product?.description} />

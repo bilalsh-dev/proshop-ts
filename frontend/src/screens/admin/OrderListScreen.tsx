@@ -4,6 +4,7 @@ import { useGetOrdersQuery } from "slices";
 import { Button, Table } from "@/lib/react-bootstrap";
 import { FaTimes } from "@/lib/react-icons";
 import { LinkContainer } from "@/lib/react-router-bootstrap";
+import { getErrorMessage } from "@/utils";
 
 const OrderListScreen = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
@@ -14,9 +15,7 @@ const OrderListScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">
-          {error?.data?.message || error.error}
-        </Message>
+        <Message variant="danger">{getErrorMessage(error)}</Message>
       ) : (
         <Table striped bordered hover responsive className="table-sm">
           <thead>

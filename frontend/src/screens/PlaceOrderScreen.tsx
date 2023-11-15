@@ -13,6 +13,7 @@ import {
 } from "@/lib/react-bootstrap";
 import { Link, useNavigate } from "@/lib/react-router-dom";
 import { toast } from "@/lib/react-toastify";
+import { getErrorMessage } from "@/utils";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const PlaceOrderScreen = () => {
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (err) {
-      toast.error(err);
+      toast.error(getErrorMessage(err));
     }
   };
 
@@ -133,7 +134,7 @@ const PlaceOrderScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 {error && (
-                  <Message variant="danger">{error.data.message}</Message>
+                  <Message variant="danger">{getErrorMessage(error)}</Message>
                 )}
               </ListGroup.Item>
               <ListGroup.Item>

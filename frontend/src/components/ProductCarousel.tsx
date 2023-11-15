@@ -2,6 +2,7 @@ import { useGetTopProductsQuery } from "slices";
 
 import { Carousel, Image } from "@/lib/react-bootstrap";
 import { Link } from "@/lib/react-router-dom";
+import { getErrorMessage } from "@/utils";
 
 import Message from "./Message";
 
@@ -9,7 +10,7 @@ const ProductCarousel = () => {
   const { data: products, isLoading, error } = useGetTopProductsQuery();
 
   return isLoading ? null : error ? (
-    <Message variant="danger">{error?.data?.message || error.error}</Message>
+    <Message variant="danger">{getErrorMessage(error)}</Message>
   ) : (
     <Carousel pause="hover" className="bg-primary mb-4">
       {products?.map((product) => (

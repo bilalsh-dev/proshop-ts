@@ -7,6 +7,7 @@ import { Button, Col, Form, Row } from "@/lib/react-bootstrap";
 import { Link, useLocation, useNavigate } from "@/lib/react-router-dom";
 import { toast } from "@/lib/react-toastify";
 import { UserInfo } from "@/types";
+import { getErrorMessage } from "@/utils";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -42,7 +43,7 @@ const RegisterScreen = () => {
         dispatch(setCredentials({ ...res } as UserInfo));
         navigate(redirect);
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        toast.error(getErrorMessage(err));
       }
     }
   };

@@ -1,4 +1,20 @@
 import { getUserInfo, removeUserInfo, setUserInfo } from "./authUtils";
 import { addDecimals, updateCart } from "./cartUtils";
+import {
+  getErrorMessage,
+  isApiResponse,
+  isErrorWithMessage,
+  isFetchBaseQueryError,
+} from "./errorUtils";
 
-export { addDecimals, getUserInfo, removeUserInfo, setUserInfo, updateCart };
+export {
+  addDecimals,
+  getErrorMessage,
+  getUserInfo,
+  isApiResponse,
+  isErrorWithMessage,
+  isFetchBaseQueryError,
+  removeUserInfo,
+  setUserInfo,
+  updateCart,
+};

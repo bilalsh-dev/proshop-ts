@@ -10,6 +10,7 @@ import { FaEdit, FaPlus, FaTrash } from "@/lib/react-icons";
 import { LinkContainer } from "@/lib/react-router-bootstrap";
 import { useParams } from "@/lib/react-router-dom";
 import { toast } from "@/lib/react-toastify";
+import { getErrorMessage } from "@/utils";
 
 const ProductListScreen = () => {
   const { pageNumber, keyword } = useParams();
@@ -29,7 +30,7 @@ const ProductListScreen = () => {
         toast.success("Product deleted");
         refetch();
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        toast.error(getErrorMessage(err));
       }
     }
   };
@@ -43,7 +44,7 @@ const ProductListScreen = () => {
         await createProduct();
         refetch();
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        toast.error(getErrorMessage(err));
       }
     }
   };
@@ -66,7 +67,7 @@ const ProductListScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error.data.message}</Message>
+        <Message variant="danger">{getErrorMessage(error)}</Message>
       ) : (
         <>
           <Table striped bordered hover responsive className="table-sm">

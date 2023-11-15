@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Loader, Message } from "components";
 import { useEffect } from "react";
 import {
@@ -6,6 +7,7 @@ import {
   useGetPaypalClientIdQuery,
   usePayOrderMutation,
 } from "slices";
+import { getErrorMessage } from "utils";
 
 import { useAppSelector } from "@/hooks";
 import {
@@ -72,14 +74,14 @@ const OrderScreen = () => {
     }
   }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]);
 
-  function onApprove(data: any, actions: any) {
+  function onApprove(_data: any, actions: any) {
     return actions.order.capture().then(async function (details: any) {
       try {
         await payOrder({ orderId, details });
         refetch();
         toast.success("Order is paid");
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        toast.error(getErrorMessage(err));
       }
     });
   }
@@ -95,7 +97,7 @@ const OrderScreen = () => {
     toast.error(err.message);
   }
 
-  function createOrder(data: any, actions: any) {
+  function createOrder(_data: any, actions: any) {
     return actions.order
       .create({
         purchase_units: [
@@ -117,7 +119,7 @@ const OrderScreen = () => {
   return isLoading ? (
     <Loader />
   ) : error ? (
-    <Message variant="danger">{error.data.message}</Message>
+    <Message variant="danger">{getErrorMessage(error)}</Message>
   ) : (
     <>
       <h1>Order {order!._id}</h1>

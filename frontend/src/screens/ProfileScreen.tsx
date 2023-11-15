@@ -11,6 +11,7 @@ import { Button, Col, Form, Row, Table } from "@/lib/react-bootstrap";
 import { FaTimes } from "@/lib/react-icons";
 import { LinkContainer } from "@/lib/react-router-bootstrap";
 import { toast } from "@/lib/react-toastify";
+import { getErrorMessage } from "@/utils";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -46,7 +47,7 @@ const ProfileScreen = () => {
         dispatch(setCredentials({ ...res }));
         toast.success("Profile updated successfully");
       } catch (err) {
-        if ("data" in err) toast.error(err?.data?.message || err.error);
+        toast.error(getErrorMessage(err));
       }
     }
   };
@@ -108,9 +109,7 @@ const ProfileScreen = () => {
         {isLoading ? (
           <Loader />
         ) : error ? (
-          <Message variant="danger">
-            {error?.data?.message || error.error}
-          </Message>
+          <Message variant="danger">{getErrorMessage(error)}</Message>
         ) : (
           <Table striped hover responsive className="table-sm">
             <thead>
@@ -124,7 +123,7 @@ const ProfileScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders?.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
