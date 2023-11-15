@@ -17,5 +17,5 @@ export const apiSlice = createApi({
   baseQuery,
   tagTypes: ["Product", "Order", "User"],
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  endpoints: (builder) => ({}),
+  endpoints: (_builder) => ({}),
 });
