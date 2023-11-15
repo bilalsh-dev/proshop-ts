@@ -1,13 +1,17 @@
 import { PRODUCTS_URL } from "@/constants";
-import type { Product, ReviewPayload } from "@/types";
+import type { Product, ProductsResponse, ReviewPayload } from "@/types";
 
 import { apiSlice } from "./apiSlice";
 
 export const productsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getProducts: builder.query<Product[], { pageNumber: string }>({
-      query: () => ({
+    getProducts: builder.query<
+      ProductsResponse,
+      { pageNumber: string; keyword: string }
+    >({
+      query: ({ pageNumber, keyword }) => ({
         url: PRODUCTS_URL,
+        params: { pageNumber, keyword },
       }),
       providesTags: ["Product"],
       keepUnusedDataFor: 5,
@@ -50,7 +54,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Product"],
     }),
-    getTopProducts: builder.query({
+    getTopProducts: builder.query<Product[], void>({
       query: () => `${PRODUCTS_URL}/top`,
       keepUnusedDataFor: 5,
     }),

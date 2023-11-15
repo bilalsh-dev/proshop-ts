@@ -13,6 +13,8 @@ import { FaShoppingCart, FaUser } from "@/lib/react-icons";
 import { LinkContainer } from "@/lib/react-router-bootstrap";
 import { useNavigate } from "@/lib/react-router-dom";
 
+import SearchBox from "./SearchBox";
+
 function Header() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -41,6 +43,7 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <SearchBox />
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <FaShoppingCart />

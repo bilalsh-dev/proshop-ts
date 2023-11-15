@@ -20,6 +20,11 @@ type Product = {
   numReviews?: number;
   reviews?: Review[];
 };
+type ProductsResponse = {
+  products: Product[];
+  page: number;
+  pages: number;
+};
 type CartItem = Product & {
   qty: number;
 };
@@ -98,6 +103,7 @@ export type {
   LoginPayload,
   Order,
   Product,
+  ProductsResponse,
   RegisterPayload,
   Review,
   ReviewPayload,

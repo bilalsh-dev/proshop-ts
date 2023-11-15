@@ -12,10 +12,11 @@ import { useParams } from "@/lib/react-router-dom";
 import { toast } from "@/lib/react-toastify";
 
 const ProductListScreen = () => {
-  const { pageNumber } = useParams();
+  const { pageNumber, keyword } = useParams();
 
   const { data, isLoading, error, refetch } = useGetProductsQuery({
     pageNumber: pageNumber || "1",
+    keyword: keyword || "",
   });
 
   const [deleteProduct, { isLoading: loadingDelete }] =
@@ -80,7 +81,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {data?.map((product) => (
+              {data?.products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
@@ -105,7 +106,12 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+          <Paginate
+            pages={data?.pages || 1}
+            page={data?.page || 1}
+            isAdmin={true}
+            keyword={keyword || ""}
+          />
         </>
       )}
     </>
