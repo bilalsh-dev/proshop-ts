@@ -10,8 +10,24 @@ type AuthenticatedRequest = Request & { user: IUser };
 // @access Public
 
 const getAllProducts = asyncHandler(async (req: Request, res: Response) => {
-  const products: IProduct[] = await Product.find({});
-  res.json(products);
+  const pageSize = Number(process.env.PAGINATION_LIMIT || 10);
+  const page = Number(req.query.pageNumber) || 1;
+
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: "i",
+        },
+      }
+    : {};
+
+  const count = await Product.countDocuments({ ...keyword });
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 // @desc   Fetch a products
 // @route  Get /api/products/:id
@@ -140,7 +156,7 @@ const createProductReview = asyncHandler(
 const getTopProducts = asyncHandler(async (req: Request, res: Response) => {
   const products = await Product.find({}).sort({ rating: -1 }).limit(3);
 
-  res.json(products);
+  res.status(200).json(products);
 });
 
 export {
@@ -150,4 +166,5 @@ export {
   updateProduct,
   deleteProduct,
   createProductReview,
+  getTopProducts,
 };
