@@ -1,6 +1,7 @@
 import {
   Loader,
   Message,
+  Meta,
   Paginate,
   Product,
   ProductCarousel,
@@ -38,6 +39,7 @@ function HomeScreen() {
         </Message>
       ) : (
         <>
+          <Meta />
           <h1>Latest Products</h1>
           <Row>
             {data?.products?.map((product) => (

@@ -1,4 +1,4 @@
-import { Loader, Message, Rating } from "components";
+import { Loader, Message, Meta, Rating } from "components";
 import { useAppDispatch, useAppSelector } from "hooks";
 import { ChangeEvent, FormEvent, useState } from "react";
 import {
@@ -76,6 +76,7 @@ function ProductScreen() {
         </Message>
       ) : (
         <>
+          <Meta title={product?.name} description={product?.description} />
           <Row>
             <Col md={5}>
               <Image src={product?.image} alt={product?.name} fluid />

@@ -20,6 +20,7 @@ import {
 } from "screens";
 import store from "store";
 
+import { HelmetProvider } from "@/lib/react-helmet-async.ts";
 import { PayPalScriptProvider } from "@/lib/react-paypal.ts";
 import { Provider } from "@/lib/react-redux.tsx";
 import {
@@ -77,10 +78,12 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PayPalScriptProvider deferLoading options={{ clientId: "test" }}>
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <PayPalScriptProvider deferLoading options={{ clientId: "test" }}>
+          <RouterProvider router={router} />
+        </PayPalScriptProvider>
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );
