@@ -10,7 +10,7 @@
     "build": "rimraf dist && npx tsc",
     "prestart": "npm run build",
     "start": "node dist/index.js",
-    "prod": "npm install && pnpm install --prefix frontend && npm run build --prefix frontend",
+    "prod": "npm install --include=dev  && pnpm install  --prefix frontend --prod=false && npm run build --prefix frontend && npm run build",
     "client": "npm run dev --prefix frontend",
     "preserve": "npm run build",
     "serve": "concurrently \"npx tsc -w\"  \"nodemon dist/index.js\" \"npm run client\"",
